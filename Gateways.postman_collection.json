@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "aeae74a3-0714-40d5-aac7-006d95f9b8aa",
+		"name": "Gateways",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Gateways",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/gateways/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"gateways",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Gateway By Serial Number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/gateways/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"gateways",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add A New Gateway",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"2\",\n    \"name\": \"Second Gateway\",\n    \"IPv4Address\": \"46.19.37.108\",\n    \"devices\": [\n        {\n        \"UID\": 1,\n        \"vendor\": \"test vendor\",\n        \"status\": \"online\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/gateways/addGateway",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"gateways",
+						"addGateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Device To Gateway",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gatewaySerialNumber\": \"2\",\n    \"device\": {\n        \"UID\": 6,\n        \"vendor\": \"test vendor\",\n        \"status\": \"online\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/gateways/addDeviceToGateway",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"gateways",
+						"addDeviceToGateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Device",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/gateways/removeDevice/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"gateways",
+						"removeDevice",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
